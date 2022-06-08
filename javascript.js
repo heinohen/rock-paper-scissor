@@ -2,52 +2,55 @@
 SETUP
 
 */
-let playerWins = 66;
-let compWins = 99;
-
-
-/*BUTTON FUNCTIONALITY */
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-
-    button.addEventListener('click', () => {
-        console.log('-----press-----');
-    });
-});
-
-
-
+let playerWins = 0;
+let compWins = 0;
+let playerSelection;
+let computerSelection;
 
 //start
 function onStart() {
     console.log("start")
     var x = document.getElementById("textScreen");
     x.innerHTML = "GAME RUNNING!<br>FIRST TO 5 WINS!";
+    document.getElementById('commentary').innerHTML = "GOOD LUCK!";
     activateButtons();
-     document.getElementById('start').style.display = "none";
-
+    resetButton.disabled = false;
 }
 
+//reset
+function onReset() {
+    playerWins = 0;
+    compWins = 0;
+    document.getElementById('player').innerHTML = playerWins;
+    document.getElementById('comp').innerHTML = compWins;
+    document.getElementById('commentary').innerHTML = "RESET!<br>PRESS START TO PLAY AGAIN!";
+    disableButtons();
+    resetButton.disabled = true;
+}
 
+// star game button
 const startButton = document.querySelector('#start');
 startButton.addEventListener('click', onStart);
+
+// reset game button
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', onReset)
 
 
 //rock
 const rockButton = document.querySelector('#ro');
-rockButton.addEventListener('click', () => choiceMade('rock'));
+rockButton.addEventListener('click', () => playRound('rock'));
 rockButton.disabled = true;
 
 //paper
 const paperButton = document.querySelector('#pa');
-paperButton.addEventListener('click', () => choiceMade('paper'))
+paperButton.addEventListener('click', () => playRound('paper'))
 paperButton.disabled = true;
 
 
 //scissors
 const scisButton = document.querySelector('#sc');
-scisButton.addEventListener('click', () => choiceMade('scissors'));
+scisButton.addEventListener('click', () => playRound('scissors'));
 scisButton.disabled = true;
 
 
@@ -74,89 +77,78 @@ function choiceMade(item) {
     
 }
 
-
-
-
-
-/* ACTUAL GAMEPLAY BELOW*/
+// computers turn
 function computerPlay() {
     const rps = ["rock", "paper", "scissors"];
     let number = Math.floor(Math.random() *3 ) ;
     return rps[number]
 }
 
-
-function playRound(computerSelection, playerSelection) {
+// play one round
+function playRound(playerSelection) {
 
     playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    let winner;
 
     if (computerSelection == "rock" && playerSelection == "scissors") {
-        return 1;
+        winner = 1;
     } else if (computerSelection == "rock" && playerSelection == "paper"){
-        return 2;
+        winner = 2;
     } else if (computerSelection == "rock" && playerSelection == "rock") {
-        return 0;
+        winner = 0;
     }
 
     if (computerSelection == "paper" && playerSelection == "rock") {
-        return 1;
+        winner = 1;
     } else if (computerSelection == "paper" && playerSelection == "scissors"){
-        return 2;
+        winner = 2;
     } else if (computerSelection == playerSelection) {
-        return 0;
+        winner = 0;
     }
 
     if (computerSelection == "scissors" && playerSelection == "paper") {
-        return 1;
+        winner = 1;
     } else if (computerSelection == "scissors" && playerSelection == "rock"){
-        return 2;
+        winner = 2;
     } else if (computerSelection == playerSelection) {
-        return 0;
+        winner = 0;
     }
-
-    }
-
-
-
-/* THIS IS THE DRIVER FOR THE GAME */
-
-function game() {
-    document.getElementById('player').innerHTML = playerWins;
-    document.getElementById('comp').innerHTML = compWins;
-
-    playerSelection = playerPlay(); 
-    computerSelection = computerPlay();
-
-    let winner = playRound(computerSelection, playerSelection)
 
     if (winner == 1) {
-        console.log("Comp won this round!" + " " + playerSelection + " < " + computerSelection);
+        document.getElementById('commentary').innerHTML = playerSelection + " vs. " + computerSelection + "</br>Computer won this round!"
         compWins++;
     } else if (winner == 2) {
-        console.log("Player won this round!" + " " + playerSelection + " > " + computerSelection);
+        document.getElementById('commentary').innerHTML = playerSelection + " vs. " + computerSelection + "</br>Player won this round!";
         playerWins++;
     } else {
-        console.log("TIE!" + " " + playerSelection + " == " + computerSelection);
+        document.getElementById('commentary').innerHTML = playerSelection + " vs. " + computerSelection + "</br>TIE!";
+    }
+    document.getElementById('player').innerHTML = playerWins;
+    document.getElementById('comp').innerHTML = compWins;
+    checkForWinner()
     }
 
-    console.log("Players score" + " " + playerWins);
-    console.log("Comp score" + " " + compWins)
-/*
-    if (playerWins > compWins)  {
-        console.log("Player won!" + " " + playerWins + " x " + compWins);
-    } else if (compWins > playerWins) {
-        console.log("Comp won!" + " " + playerWins + " x " + compWins);
-    } else {
-        console.log("UNBELIEVABLE, IT'S A TIE!" + " " + playerWins + " x " + compWins)
+// check if win conditions are filled
+function checkForWinner() {
+
+    if (playerWins == 5) {
+        document.getElementById('commentary').innerHTML = " YOU WON !"
+        document.getElementById('textScreen').innerHTML = "GAME ENDED!"
+        disableButtons();
+        startButton.disabled = true;
+        
+        return;
+    } else if (compWins == 5) {
+        document.getElementById('commentary').innerHTML = " YOU LOST !"
+        document.getElementById('textScreen').innerHTML = "GAME ENDED!"
+        disableButtons();
+        startButton.disabled = true;
+        
+        
+        return;
+        
     }
-    */
+
+
 }
-
-
-
-
-
-
-
-
-
