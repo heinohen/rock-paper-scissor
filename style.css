@@ -29,11 +29,6 @@ ul {
     flex-direction: column;
     flex-shrink: 0;
 
-    /*REMOVE BELOW WHEN DONE*/
-    border: 1px;
-    border-style: solid;
-    border-color: blue;
-    /*^^^^^^^^^^^^^^^^^^^^^^*/
 }
 
 #textScreen {
@@ -42,11 +37,6 @@ ul {
     color: aqua;
     background-color: red;
 
-    /*REMOVE BELOW WHEN DONE*/
-    border: 1px;
-    border-style: solid;
-    border-color: yellow;
-    /*^^^^^^^^^^^^^^^^^^^^^^*/
 }
 
 #scoreScreen {
@@ -57,11 +47,6 @@ ul {
     align-items: center;
 
 
-    /*REMOVE BELOW WHEN DONE*/
-    border: 1px;
-    border-style: solid;
-    border-color: gray;
-    /*^^^^^^^^^^^^^^^^^^^^^^*/
 }
 
 
@@ -78,38 +63,26 @@ p#comp, p#player {
     margin: 0;
 }
 
-.napit {
+.butts {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 100px;
 
-    /*REMOVE BELOW WHEN DONE*/
-    border: 1px;
-    border-style: solid;
-    border-color: green;
-    /*^^^^^^^^^^^^^^^^^^^^^^*/
 
 }
 
 .start {
-     /*REMOVE BELOW WHEN DONE*/
-     border: 1px;
-     border-style: solid;
-     border-color: red;
-     /*^^^^^^^^^^^^^^^^^^^^^^*/
+    display: block;
+    
     
 }
 
-.valinnat {
-    /*REMOVE BELOW WHEN DONE*/
+.choices {
     margin: 0;
     padding: 0;
-    border: 1px;
-    border-style: solid;
-    border-color: yellow;
-    /*^^^^^^^^^^^^^^^^^^^^^^*/
+    
 
 }
 
@@ -121,7 +94,7 @@ p#comp, p#player {
     justify-content: center;
 }
 
-.alarivi {
+.footer {
     display: flex;
     height: 50px;
     background-color: gray;

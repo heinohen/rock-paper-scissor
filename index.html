@@ -7,11 +7,10 @@
     <title>RPS!</title>
     <link rel = "stylesheet" href="style.css">
 </head>
-
-
-
 <body>
     
+
+    <!-- THIS IS AREA ABOVE BUTTONS-->
     <h1 class = "header">RPS!</h1>
     <div class = 'container'>
         <div id = 'textScreen'>
@@ -23,25 +22,37 @@
         <div id = 'scoreNumbers'>
             <p id = 'player'> 0 </p> - <p id = 'comp'> 1 </p>
         </div>
-        
-
+        <div id = 'commentaryText'>
+            <p id = 'commentary'> YOU LOST! </p> </p>
+        </div>
     </div>
-    <div class = 'napit'>
+
+
+
+    <!-- THIS IS BUTTONS-->
+    <div class = 'butts'>
+        
+        <div class = 'choices'>
+            <ul class = 'rps'>
+                <li><button class = "three" id = 'ro'><img src="./images/rock.png" alt = "rock" width=" 50" height = "50">ROCK!</button></li>
+                <li><button class = "three" id = 'pa'><img src="./images/paper.png" alt = "paper" width=" 50" height = "50">PAPER!</button></li>
+                <li><button class = "three" id = 'sc'><img src="./images/scissors.png" alt = "scissors" width=" 50" height = "50"> SCISSORS!</button></li>
+            </ul>
+        </div>
         <div class = 'start'>
             <button id = 'start'> start game! </button>
         </div>
-        <div class = 'valinnat'>
-            <ul class = 'rps'>
-                <li><button id = 'ro'><img src="./images/rock.png" width=" 50" height = "50">ROCK!</button></li>
-                <li><button id = 'pa'><img src="./images/paper.png" width=" 50" height = "50">PAPER!</button></li>
-                <li><button id = 'sc'><img src="./images/scissors.png" width=" 50" height = "50"> SCISSORS!</button></li>
-            </ul>
-        </div>
         
     </div>
-    <div class = 'alarivi'>
+
+    <!-- THIS IS FOOTER-->
+    <div class = 'footer'>
         (c) heinohen 2022
     </div>
+
+
+
+
     <script src = "javascript.js"></script>
 </body>
 

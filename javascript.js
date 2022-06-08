@@ -1,7 +1,14 @@
+/*
+SETUP
+
+*/
+let playerWins = 66;
+let compWins = 99;
+
+
 /*BUTTON FUNCTIONALITY */
 
 const buttons = document.querySelectorAll('button');
-
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
@@ -9,63 +16,75 @@ buttons.forEach((button) => {
     });
 });
 
+
+
+
+//start
 function onStart() {
     console.log("start")
-    startButton.disabled = true;
-    rockButton.disabled = false;
-    paperButton.disabled = false;
-    scisButton.disabled = false;
-
-
     var x = document.getElementById("textScreen");
     x.innerHTML = "GAME RUNNING!<br>FIRST TO 5 WINS!";
+    activateButtons();
+     document.getElementById('start').style.display = "none";
+
 }
 
-function onRock() {
-    console.log("kivi");
-}
-
-function onPaper() {
-    console.log("paperi");
-}
-
-function onScissors() {
-    console.log("sakset");
-}
 
 const startButton = document.querySelector('#start');
-
 startButton.addEventListener('click', onStart);
 
-const rockButton = document.querySelector('#ro');
 
-rockButton.addEventListener('click', onRock);
+//rock
+const rockButton = document.querySelector('#ro');
+rockButton.addEventListener('click', () => choiceMade('rock'));
 rockButton.disabled = true;
 
+//paper
 const paperButton = document.querySelector('#pa');
-
-paperButton.addEventListener('click', onPaper)
+paperButton.addEventListener('click', () => choiceMade('paper'))
 paperButton.disabled = true;
 
-const scisButton = document.querySelector('#sc');
 
-scisButton.addEventListener('click', onScissors);
+//scissors
+const scisButton = document.querySelector('#sc');
+scisButton.addEventListener('click', () => choiceMade('scissors'));
 scisButton.disabled = true;
 
 
+function activateButtons() {
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scisButton.disabled = false;
+    startButton.disabled = true;
+}
 
+function disableButtons() {
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scisButton.disabled = true;
+    startButton.disabled = false
+
+}
+
+function choiceMade(item) {
+    playerSelection = item;
+    console.log(playerSelection)
+    disableButtons();
+
+    
+}
 
 
 
 
 
 /* ACTUAL GAMEPLAY BELOW*/
-/*
 function computerPlay() {
     const rps = ["rock", "paper", "scissors"];
     let number = Math.floor(Math.random() *3 ) ;
     return rps[number]
 }
+
 
 function playRound(computerSelection, playerSelection) {
 
@@ -98,33 +117,31 @@ function playRound(computerSelection, playerSelection) {
     }
 
 
+
 /* THIS IS THE DRIVER FOR THE GAME */
 
 function game() {
-    let playerWins = 0;
-    let compWins = 0;
+    document.getElementById('player').innerHTML = playerWins;
+    document.getElementById('comp').innerHTML = compWins;
 
-    for (let i = 0; i < 5; i++) {
+    playerSelection = playerPlay(); 
+    computerSelection = computerPlay();
 
-        let playerSelection = prompt("give rock, paper or scissors");
-        let computerSelection = computerPlay();
+    let winner = playRound(computerSelection, playerSelection)
 
-        let winner = playRound(computerSelection, playerSelection)
-
-        if (winner == 1) {
-            console.log("Comp won this round!" + " " + playerSelection + " < " + computerSelection);
-            compWins++;
-        } else if (winner == 2) {
-            console.log("Player won this round!" + " " + playerSelection + " > " + computerSelection);
-            playerWins++;
-        } else {
-            console.log("TIE!" + " " + playerSelection + " == " + computerSelection);
-            continue;
-        }
-
-        console.log("Players score" + " " + playerWins);
-        console.log("Comp score" + " " + compWins)
+    if (winner == 1) {
+        console.log("Comp won this round!" + " " + playerSelection + " < " + computerSelection);
+        compWins++;
+    } else if (winner == 2) {
+        console.log("Player won this round!" + " " + playerSelection + " > " + computerSelection);
+        playerWins++;
+    } else {
+        console.log("TIE!" + " " + playerSelection + " == " + computerSelection);
     }
+
+    console.log("Players score" + " " + playerWins);
+    console.log("Comp score" + " " + compWins)
+/*
     if (playerWins > compWins)  {
         console.log("Player won!" + " " + playerWins + " x " + compWins);
     } else if (compWins > playerWins) {
@@ -132,6 +149,7 @@ function game() {
     } else {
         console.log("UNBELIEVABLE, IT'S A TIE!" + " " + playerWins + " x " + compWins)
     }
+    */
 }
 
 
