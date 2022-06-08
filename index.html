@@ -12,23 +12,37 @@
 
 <body>
     
-    <h1>RPS!</h1>
+    <h1 class = "header">RPS!</h1>
     <div class = 'container'>
-        LET'S PLAY!
+        <div id = 'textScreen'>
+            LET'S PLAY! Press start to begin!
+        </div>
+        <div id = 'scoreScreen'>
+            PLAYER VS. COMPUTER
+        </div>
+        <div id = 'scoreNumbers'>
+            <p id = 'player'> 0 </p> - <p id = 'comp'> 1 </p>
+        </div>
         
 
     </div>
     <div class = 'napit'>
-        <ul class = 'rps'>
-            <li><button id = 'ro'><img src="./images/rock.png" width=" 50" height = "50">ROCK!</button></li>
-            <li><button id = 'pa'><img src="./images/paper.png" width=" 50" height = "50">PAPER!</button></li>
-            <li><button id = 'sc'><img src="./images/scissors.png" width=" 50" height = "50"> SCISSORS!</button></li>
-        </ul>
+        <div class = 'start'>
+            <button id = 'start'> start game! </button>
+        </div>
+        <div class = 'valinnat'>
+            <ul class = 'rps'>
+                <li><button id = 'ro'><img src="./images/rock.png" width=" 50" height = "50">ROCK!</button></li>
+                <li><button id = 'pa'><img src="./images/paper.png" width=" 50" height = "50">PAPER!</button></li>
+                <li><button id = 'sc'><img src="./images/scissors.png" width=" 50" height = "50"> SCISSORS!</button></li>
+            </ul>
+        </div>
+        
     </div>
     <div class = 'alarivi'>
         (c) heinohen 2022
     </div>
-    
+    <script src = "javascript.js"></script>
 </body>
 
 </html>

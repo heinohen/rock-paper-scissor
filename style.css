@@ -10,11 +10,108 @@ html, body {
     
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header, .container {
+    text-align: center;
+}
+
+
+
+.container {
+
+    height: auto;
+    
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    /*REMOVE BELOW WHEN DONE*/
+    border: 1px;
+    border-style: solid;
+    border-color: blue;
+    /*^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+#textScreen {
+    margin: 0;
+    height: 40px;
+    color: aqua;
+    background-color: red;
+
+    /*REMOVE BELOW WHEN DONE*/
+    border: 1px;
+    border-style: solid;
+    border-color: yellow;
+    /*^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+#scoreScreen {
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    /*REMOVE BELOW WHEN DONE*/
+    border: 1px;
+    border-style: solid;
+    border-color: gray;
+    /*^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+
+#scoreNumbers {
+    font-size: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+p#comp, p#player {
+    margin: 0;
+}
 
 .napit {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+
+    /*REMOVE BELOW WHEN DONE*/
+    border: 1px;
+    border-style: solid;
+    border-color: green;
+    /*^^^^^^^^^^^^^^^^^^^^^^*/
+
 }
 
+.start {
+     /*REMOVE BELOW WHEN DONE*/
+     border: 1px;
+     border-style: solid;
+     border-color: red;
+     /*^^^^^^^^^^^^^^^^^^^^^^*/
+    
+}
+
+.valinnat {
+    /*REMOVE BELOW WHEN DONE*/
+    margin: 0;
+    padding: 0;
+    border: 1px;
+    border-style: solid;
+    border-color: yellow;
+    /*^^^^^^^^^^^^^^^^^^^^^^*/
+
+}
 
 .rps {
     display: flex;

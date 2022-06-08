@@ -1,3 +1,66 @@
+/*BUTTON FUNCTIONALITY */
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        console.log('-----press-----');
+    });
+});
+
+function onStart() {
+    console.log("start")
+    startButton.disabled = true;
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scisButton.disabled = false;
+
+
+    var x = document.getElementById("textScreen");
+    x.innerHTML = "GAME RUNNING!<br>FIRST TO 5 WINS!";
+}
+
+function onRock() {
+    console.log("kivi");
+}
+
+function onPaper() {
+    console.log("paperi");
+}
+
+function onScissors() {
+    console.log("sakset");
+}
+
+const startButton = document.querySelector('#start');
+
+startButton.addEventListener('click', onStart);
+
+const rockButton = document.querySelector('#ro');
+
+rockButton.addEventListener('click', onRock);
+rockButton.disabled = true;
+
+const paperButton = document.querySelector('#pa');
+
+paperButton.addEventListener('click', onPaper)
+paperButton.disabled = true;
+
+const scisButton = document.querySelector('#sc');
+
+scisButton.addEventListener('click', onScissors);
+scisButton.disabled = true;
+
+
+
+
+
+
+
+
+/* ACTUAL GAMEPLAY BELOW*/
+/*
 function computerPlay() {
     const rps = ["rock", "paper", "scissors"];
     let number = Math.floor(Math.random() *3 ) ;
@@ -34,6 +97,9 @@ function playRound(computerSelection, playerSelection) {
 
     }
 
+
+/* THIS IS THE DRIVER FOR THE GAME */
+
 function game() {
     let playerWins = 0;
     let compWins = 0;
@@ -67,9 +133,6 @@ function game() {
         console.log("UNBELIEVABLE, IT'S A TIE!" + " " + playerWins + " x " + compWins)
     }
 }
-
-game();
-
 
 
 
